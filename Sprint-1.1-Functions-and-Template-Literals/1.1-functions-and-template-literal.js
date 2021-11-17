@@ -28,7 +28,7 @@ function numero (valor){
     return `El valor és ${valor} i és dins d'un template literal`;
 }
 
-console.log(numero(3));
+console.log(`Ja vaig aconseguir invocar una funció dins un templat literal: ${numero(2)}`);
 
 
 // NIVELL 3
