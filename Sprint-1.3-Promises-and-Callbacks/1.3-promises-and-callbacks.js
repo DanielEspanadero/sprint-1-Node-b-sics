@@ -69,3 +69,14 @@ let salaries = [{
     id: 3,
     salary: 2000
 }];
+
+
+let getEmployee = id => {
+    Promise.resolve(console.log(Object.values(employees[id - 1])));
+}
+
+getEmployee(1)
+
+
+//Exercici 2: Crea una altra arrow function getSalary que rebi com a paràmetre un objecte employee i retorni el seu salari.
+
