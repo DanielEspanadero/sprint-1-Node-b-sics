@@ -65,29 +65,64 @@ let salaries = [{
 }];
 
 
+
 let getEmployee = id => {
-    Promise.resolve(console.log(Object.values(employees[id - 1])));
+    return new Promise((resolve, reject) => {
+        if (id > 3 || id <= 0) {
+            reject(console.log(`El ID ${id} no es valido, tiene que ser entre 1 y 3`))
+
+        } else {
+            resolve(employees[id - 1]);
+        }
+    })
 }
 
-getEmployee(1)
+getEmployee(9)
+    .then(resolve => console.log(resolve))
+    .catch(err => err)
 
 
 //N2 E2: Crea una altra arrow function getSalary que rebi com a paràmetre un objecte employee i retorni el seu salari.
 
-let getSalary = getEmployee => {
-    return Promise.resolve(console.log(salaries[employees - 1].salary));
+let id = 1
+let idEmpleado = id
+let employee = employees.find(employees => employees.id === idEmpleado);
+
+
+let getSalary = (employee) => {
+    return new Promise((resolve, reject) => {
+        if (id > 3 || id <= 0) {
+            reject(`El ID ${id} no es valido, tiene que ser entre 1 y 3`)
+
+        } else {
+            resolve(salaries[id - 1].salary);
+        }
+    })
 }
 
-getSalary()
+getSalary(employee)
+    .then(resolve => console.log(resolve))
+    .catch(err => console.log(err))
+
 
 // N2 E3: Invoca la primera funció getEmployee i després getSalary niant l'execució de les dues promises.
 
-getEmployee(2)
-    .then(result => getSalary(2))
+id = 1
+
+getEmployee(id)
+    .then(resolve => console.log(resolve))
+    .then(salary => {
+        getSalary(getEmployee(id))
+            .then(resolve => console.log(resolve))
+    })
 
 
 //N3 E1: Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el mostri per la consola.
 
-getEmployee(2)
-    .then(result => getSalary(2))
-    .catch(err => console.log("Algo ha ido mal"))
+getEmployee(id)
+    .then(resolve => console.log(resolve))
+    .then(salary => {
+        getSalary(getEmployee(id))
+            .then(resolve => console.log(resolve))
+    })
+    .catch(err => err)
