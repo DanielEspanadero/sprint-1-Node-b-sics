@@ -39,3 +39,5 @@ let ficheroConsola = ()=>{
   ficheroConsola()
 
 // N2 E1 Crea una funció que comprimeixi el fitxer del nivell 1.
+
+var 
