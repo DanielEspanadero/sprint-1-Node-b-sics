@@ -11,31 +11,33 @@ recursiva()
 
 // N1 E2 Crea una funció que, en executar-la, escrigui una frase en un fitxer.
 
-const fs = require("fs");
+const fs = require('fs');
 
 const base = 5;
-let salida = "";
-
+let salida = '';
+const nomArxiu = `Tabla.${base}.txt`
 
 let escribirFichero = () => {
   for (let i = 1; i <= 10; i++) {
     salida += (`${base} x ${i} = ${base * i}\n`);
   };
 
-  fs.writeFile(`Tabla.${base}.txt`, salida, (err) => {
+  fs.writeFile(nomArxiu, salida, (err) => {
     if (err) throw err;
     console.log(`Tabla-${base} creada`);
   });
+
+
 };
 
 escribirFichero()
 
+
+
 // N1 E3 Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.
 
-let ficheroConsola = ()=>{
-    console.log(salida);
-  }
+fs.readFile(nomArxiu, 'utf8', function (err, data) {
+  console.log(data);
+});
   
-  ficheroConsola()
-
 // N2 E1 Crea una funció que comprimeixi el fitxer del nivell 1.

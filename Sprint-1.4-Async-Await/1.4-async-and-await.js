@@ -26,7 +26,6 @@ let getEmployee = id => {
     return new Promise((resolve, reject) => {
         if (id > 3 || id <= 0) {
             reject(console.log(`El ID ${id} no es valido, tiene que ser entre 1 y 3`))
-
         } else {
             resolve(employees[id - 1]);
         }
