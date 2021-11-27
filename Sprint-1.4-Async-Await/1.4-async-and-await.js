@@ -22,13 +22,10 @@ let salaries = [{
     salary: 2000
 }];
 
-// Donats els objectes employees i salaries, crea una arrow function getEmployee que retorni una Promise efectuant la cerca en l'objecte pel seu id. Crea una altra arrow function getSalary que rebi com a paràmetre un objecte employee i retorni el seu salari.
-
 let getEmployee = id => {
     return new Promise((resolve, reject) => {
         if (id > 3 || id <= 0) {
             reject(console.log(`El ID ${id} no es valido, tiene que ser entre 1 y 3`))
-
         } else {
             resolve(employees[id - 1]);
         }
