@@ -32,10 +32,10 @@ escribirFichero()
 
 // N1 E3 Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.
 
-let ficheroConsola = ()=>{
-    console.log(salida);
-  }
-  
-  ficheroConsola()
+fs.readFile(nomArxiu, 'utf8', function (err, data) {
+  console.log(data);
+});
 
 // N2 E1 Crea una funció que comprimeixi el fitxer del nivell 1.
+
+
