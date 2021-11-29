@@ -29,7 +29,7 @@ let arrowNumber = (number, callback)=>{
         callback({
             error:true,
             message:"The number is greater than or equal to 30",
-        })
+        }, null)
         return
     }else{
         callback(null, {

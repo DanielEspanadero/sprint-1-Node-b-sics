@@ -22,55 +22,61 @@ let salaries = [{
     salary: 2000
 }];
 
+// ! Correccions: He corregit els mateixos errors que tenia al 1.3.
+
 let getEmployee = id => {
     return new Promise((resolve, reject) => {
-        if (id > 3 || id <= 0) {
-            reject(console.log(`El ID ${id} no es valido, tiene que ser entre 1 y 3`))
+        let findEmployee = employees.find(employee => employee.id === id)
+        if (findEmployee) {
+            resolve(findEmployee.name);
         } else {
-            resolve(employees[id - 1]);
+            reject(`The ID ${id} doesn't value, you need put a numbrer from 1 to 3`);
         }
     })
 }
 
-getEmployee(9)
-    .then(resolve => console.log(resolve))
-    .catch(err => err)
-
-let id = 1
-let idEmpleado = id
-let employee = employees.find(employees => employees.id === idEmpleado);
-
-
-let getSalary = (employee) => {
-    return new Promise((resolve, reject) => {
-        if (id > 3 || id <= 0) {
-            reject(`El ID ${id} no es valido, tiene que ser entre 1 y 3`)
-
-        } else {
-            resolve(salaries[id - 1]);
-        }
-    })
-}
-
-getSalary(employee)
+getEmployee(2)
     .then(resolve => console.log(resolve))
     .catch(err => console.log(err))
 
+let getSalary = (id) => {
+    return new Promise((resolve, reject) => {
+        let findSalary = salaries.find(salario => salario.id === id);
+        if (findSalary) {
+            resolve(findSalary.salary);
+        } else {
+            reject('The ID doesn`t exit!');
+        }
+    });
+};
+
+getSalary(2)
+    .then(good => console.log(good))
+    .catch(err => console.log(err));
+
 // N1 E2 Crea una funció asíncrona que rebi un id d'empleat i imprimeixi per pantalla el nom de l'empleat i el seu salari, usant les funcions que has definit a l'exercici anterior.
     
-id = 4
-async function empSalari(id) {
+// TODO Crear una funció asincrona que rebri un id d'empleat
+// TODO Imprimir per pantalla el nom de l'empleat i el seu salari
+// TODO Fer servis les funcions de l'exercici anterior
+// ! Correcció: He adaptat l'exercici a les correccións de l'exercici anterior.
+
+async function asinRes(id) {
     try {
         const employee = await getEmployee(id);
-        const salari = await getSalary(id);
-        return console.log(`${employee.name},  ${salari.salary}`);
+        const salary = await getSalary(id);
+        return console.log(`employee: ${employee}, Salary: ${salary}`);
     } catch (errorMessage) {
-        console.log('Error, no hay datos')
+        console.log('Error, no data')
     }
 }
-empSalari(id);
+asinRes(1);
 
 // N2 E1: Crea una nova funció asíncrona que cridi a una altra que retorni una Promise que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
+
+// TODO Crear una nova funció asíncrona que cridi a una altra
+// TODO Fer que retorni una promise que efectuï la funció resolve als 2 segons
+
 
 var age = 18;
 
@@ -91,9 +97,8 @@ const greet = (age) => {
 async function funAsinc() {
     try {
         const presentation = await greet(age);
-        console.log(presentation);
-    } catch (errorMessage) {
-        console.log(errorMessage)
+    } catch {
+        const err = await greet.reject()
     }
 }
 
@@ -102,3 +107,10 @@ funAsinc();
 // N3 E1 Captura tots els errors possibles dels nivells 1 i 2.
 
 // * 📌 Els errors ja estan capturats als respectius exercicis 
+
+
+// Exportació pel exercici de test
+
+module.exports = {
+    getEmployee
+}
