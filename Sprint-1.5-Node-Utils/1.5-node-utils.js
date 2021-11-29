@@ -33,17 +33,11 @@ let escribirFichero = () => {
 escribirFichero()
 
 
-
 // N1 E3 Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.
 
 fs.readFile(nomArxiu, 'utf8', function (err, data) {
   console.log(data);
 });
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 5fa0fae452a72101314daf8c7dd491f12e3da285
+
 // N2 E1 Crea una funció que comprimeixi el fitxer del nivell 1.
-
-

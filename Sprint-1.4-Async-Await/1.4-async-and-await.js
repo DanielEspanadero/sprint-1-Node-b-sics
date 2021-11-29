@@ -107,3 +107,10 @@ funAsinc();
 // N3 E1 Captura tots els errors possibles dels nivells 1 i 2.
 
 // * 📌 Els errors ja estan capturats als respectius exercicis 
+
+
+// Exportació pel exercici de test
+
+module.exports = {
+    getEmployee
+}
