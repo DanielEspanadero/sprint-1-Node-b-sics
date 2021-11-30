@@ -97,8 +97,9 @@ const greet = (age) => {
 async function funAsinc() {
     try {
         const presentation = await greet(age);
-    } catch {
-        const err = await greet.reject()
+        console.log(presentation)
+    } catch (err) {
+        console.log(err)
     }
 }
 
