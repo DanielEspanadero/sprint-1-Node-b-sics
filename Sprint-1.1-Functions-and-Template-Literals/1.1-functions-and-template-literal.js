@@ -35,12 +35,29 @@ console.log(`Ja vaig aconseguir invocar una funció dins un templat literal: ${n
 
 // Exercici 1: Crea una matriu de deu funcions i emplena-la mitjançant un bucle de manera que cada funció compti del 0 al 9 per la consola. Invoca cada funció de l'array iterativament. Haurà de mostrar-se per consola el compte del 0 al 9 deu vegades.
 
-var array = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1];
+// !Correcció: No vaig fer el que demanava l'exercici, osigui que em va tocar començar de nou i em va ajudar molt dividir l'exercici en parts més petites.
 
-for(i of array){
-    array.forEach(function(){
-        console.log(i+=1);
-    })
+// TODO Funció que farem servir per contar del 0 al 9 i afegirla deu vegades a l'arrai.
+const contador = () => {
+    for (let i = 0; i < 10; i++) {
+        console.log(i)
+    }
+}
+
+// TODO Arrai al qual li ficarem deu funcions
+
+const ficarContador = []
+
+// TODO Bucle per afegir deu funcions a l'arrai
+
+for (let i = 0; i < 10; i++) {
+    ficarContador[i] = contador
+}
+
+// TODO Executar les funcions iterativament
+
+for (let i = 0; i < 10; i++) {
+    ficarContador[i]()
 }
 
 

@@ -121,14 +121,15 @@ getSalary(2)
 // TODO Invocar la funció getEmployee i després getSalari [x]
 // TODO Niar les dues promeses [x]
 // ! Correcció: He cambiat les dues promeses per separat i he ficat tot dins d'un promise all, així quan s'executa la primera, si aquesta es correcta, despres s'executara la segona.
+//! Correcció 2: Habia ficat tot dins d'un promise.all, finalment he niat les dues promeses tal i com diu l'exercici. 
 
-let id = 2
-Promise.all([getEmployee(id), getSalary(id)])
-    .then(name => {
-        console.log(name);
-    }, salary => {
-        console.log(salary)
-    });
+let id = 1
+getEmployee(id).then(name => {
+    console.log(name)
+    return getSalary(id)
+}).then(salary => {
+    console.log(salary)
+})
 
 
 //N3 E1: Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el mostri per la consola.
@@ -137,11 +138,12 @@ Promise.all([getEmployee(id), getSalary(id)])
 // TODO Fer que capturi qualsevol error i el mostri per consola [x]
 // ! Correcció: Com l'exercici anterior el tenia malament, l'he adaptat al corregit i he afegit la captura del error
 
-let id = 4
-Promise.all([getEmployee(id), getSalary(id)])
-    .then(name => {
-        console.log(name);
-    }, salary => {
-        console.log(salary)
-    })
-    .catch(err => console.log(err));
+let id = 1
+getEmployee(id).then(name => {
+    console.log(name)
+    return getSalary(id)
+}).then(salary => {
+    console.log(salary)
+}).catch((e) => {
+    console.log(e)
+})

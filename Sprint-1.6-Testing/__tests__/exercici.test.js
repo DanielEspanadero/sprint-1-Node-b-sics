@@ -1,4 +1,10 @@
 const { addition, substraction, multiplication, division } = require('../app/calc');
+const { getEmployee } = require('../../Sprint-1.4-Async-Await/1.4-async-and-await')
+
+
+
+
+// TODO Crea un arxiu amb les funcions sumar, restar, multiplicar i dividir dos o més operands.Testeja la correcta execució d'aquestes funcions. [x]
 
 describe('test for addition', () => {
     test('1 + 2 is 3', () => {
@@ -35,3 +41,11 @@ describe('test for division', () => {
         expect(division(10,5)).toBe(2)
     });
 });
+
+
+// TODO Crea els tests corresponents per verificar el funcionament de l'exercici Async / Await Nivell 1 - Exercici 1
+
+test('Should return Linux Torvalds', async () => {
+    const response = await getEmployee(1)
+    expect(response.name).toBe('Linux Torvalds')
+})
