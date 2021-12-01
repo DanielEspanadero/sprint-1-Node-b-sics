@@ -42,7 +42,7 @@ const writeText = () => {
     if (err) {
       throw err
     }
-    console.log('File is created')
+    console.log('Test created')
   })
 }
 
