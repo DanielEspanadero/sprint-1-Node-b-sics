@@ -88,7 +88,6 @@ const greet = (age) => {
             }, 2000);
         } else {
             reject('You need to put your age!')
-
         }
 
     });
@@ -103,7 +102,7 @@ async function funAsinc() {
     }
 }
 
-funAsinc();
+// funAsinc();
 
 // N3 E1 Captura tots els errors possibles dels nivells 1 i 2.
 
@@ -113,5 +112,7 @@ funAsinc();
 // Exportació pel exercici de test
 
 module.exports = {
-    getEmployee
+    getEmployee,
+    greet,
+    funAsinc
 }
