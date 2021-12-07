@@ -2,7 +2,7 @@ const { addition,
     substraction,
     multiplication,
     division
-} = require('../app/calc');
+} = require('../app/1.6-testing');
 
 const { getEmployee,
     funAsinc,
@@ -65,55 +65,12 @@ describe('test for search employee name with the ID', () => {
 
 //TODO Crea els tests corresponents per verificar el funcionament de l'exercici Async / Await Nivell 2 - Exercici 1
 
-// describe('Confirm that the function that returns a promise works.', () => {
-//     test('years is 6', async () => {
-//         const response = await greet(6)
-//         expect(response).toBe("I'm 6 years old")
-//         const response2 = await funAsinc()
-//     expect(response2).toBe("I'm 6 years old")
-// })
-// })
 
-// describe('Confirm an asynchronous function that calls another', () => {
-//     test('Test for add Promise', async () => {
-//         const response2 = await funAsinc()
-//         expect(response2).toBe("I'm 6 years old")
-//     })
-// })
 
 
 //TODO Crea els tests corresponents per verificar el funcionament de l'exercici Promises & Callbacks Nivell 2 - Exercici 3
 
-test('Should return 4000',async () => {
-    const employee = await getEmployee2(1)
-    const response = await getSalary2(employee[id])
-    expect(response.salary).toBe(4000)
-})
 
-// let id = 1
-// getEmployee2(id).then(name => {
-//     console.log(name)
-//     return getSalary2(id)
-// }).then(salary => {
-//     console.log(salary)
-// })
+
 
 //TODO Verifica mitjançant tests l'execució de l'exercici Async / Await Nivell 2 Exercici 1 utilitzant Jest Fake Timers.
-
-// test('Fake Timers', () => {
-//     const callback = jest.fn()
-
-//     sums(callback)
-
-//     expect(callback).toHaveBeenCalled()
-
-//     const cb = () => {
-//         jest.runAllTimers()
-//     }
-
-//     jest.useFakeTimers()
-
-//     return add(1, 2, cb).then(data => {
-//         expect(data).toBe(3)
-//     })
-// })
