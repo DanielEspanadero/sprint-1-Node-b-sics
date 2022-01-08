@@ -77,42 +77,26 @@ asinRes(1);
 // TODO Crear una nova funció asíncrona que cridi a una altra
 // TODO Fer que retorni una promise que efectuï la funció resolve als 2 segons
 
-
-var age = 18;
-
-const greet = (age) => {
-    return new Promise((resolve, reject) => {
-        if (typeof age === 'number') {
-            setTimeout(() => {
-                resolve(`I'm ${age} years old`);
-            }, 2000);
-        } else {
-            reject('You need to put your age!')
-        }
-
+const mostrarAls2Secs = () => {
+    const promesa = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve('Aquest missatge s`ha de mostrar als 2 segons');
+        }, 2000);
     });
-}
+    return promesa;
+};
 
-async function funAsinc() {
+const cridarFuncio = async () => {
     try {
-        const presentation = await greet(age);
-        console.log(presentation)
+        const mostrar = await mostrarAls2Secs();
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
-}
+};
 
-// funAsinc();
+cridarFuncio();
 
 // N3 E1 Captura tots els errors possibles dels nivells 1 i 2.
 
 // * 📌 Els errors ja estan capturats als respectius exercicis 
 
-
-// Exportació pel exercici de test
-
-module.exports = {
-    getEmployee,
-    greet,
-    funAsinc
-}

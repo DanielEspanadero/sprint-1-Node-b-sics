@@ -78,7 +78,7 @@ let salaries = [{
 // TODO Que donant-li un ID, retorni el nom de l'empleat [x]
 // ! Correcció: Habia posat el console.log() dins del resolve en comptes de fer-ho al .then, tambè he millorat la recerca afegint un .find().
 
-let getEmployee2 = id => {
+let getEmployee = id => {
     return new Promise((resolve, reject) => {
         let findEmployee = employees.find(employee => employee.id === id)
         if (findEmployee) {
@@ -89,7 +89,7 @@ let getEmployee2 = id => {
     })
 }
 
-getEmployee2(2)
+getEmployee(2)
     .then(resolve => console.log(resolve))
     .catch(err => console.log(err))
 
@@ -100,7 +100,7 @@ getEmployee2(2)
 // TODO Fer que retorni el salari pel seu id [x]
 // ! Correcció: He tret el console.log dels parametres resolve i reject i he fet que retorni el salari quan el donem l'id concret.
 
-let getSalary2 = (id) => {
+let getSalary = (id) => {
     return new Promise((resolve, reject) => {
         let findSalary = salaries.find(salario => salario.id === id);
         if (findSalary) {
@@ -111,7 +111,7 @@ let getSalary2 = (id) => {
     });
 };
 
-getSalary2(2)
+getSalary(2)
     .then(good => console.log(good))
     .catch(err => console.log(err));
 
@@ -124,9 +124,9 @@ getSalary2(2)
 //! Correcció 2: Habia ficat tot dins d'un promise.all, finalment he niat les dues promeses tal i com diu l'exercici. 
 
 let id = 1
-getEmployee2(id).then(name => {
+getEmployee(id).then(name => {
     console.log(name)
-    return getSalary2(id)
+    return getSalary(id)
 }).then(salary => {
     console.log(salary)
 })
@@ -138,16 +138,11 @@ getEmployee2(id).then(name => {
 // TODO Fer que capturi qualsevol error i el mostri per consola [x]
 // ! Correcció: Com l'exercici anterior el tenia malament, l'he adaptat al corregit i he afegit la captura del error
 
-getEmployee2(id).then(name => {
+getEmployee(id).then(name => {
     console.log(name)
-    return getSalary2(id)
+    return getSalary(id)
 }).then(salary => {
     console.log(salary)
 }).catch((e) => {
     console.log(e)
-})
-
-module.exports = {
-    getEmployee2,
-    getSalary2
-}
+});
