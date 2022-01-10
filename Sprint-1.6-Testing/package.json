@@ -1,12 +1,12 @@
 {
   "name": "sprint-1.6-testing",
   "version": "1.0.0",
-  "description": "</br>",
+  "description": "Exercicis de testing utilitzant Jest.",
   "main": "1.6-testing.js",
   "scripts": {
     "test": "jest"
   },
-  "author": "",
+  "author": "Daniel Españadero",
   "license": "ISC",
   "dependencies": {
     "jest": "^27.4.3",

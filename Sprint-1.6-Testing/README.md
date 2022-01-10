@@ -1,5 +1,5 @@
 # 💻Sprint 1. Node bàsics💻
-## Entrega 1.4: Testing
+## Entrega 1.6: Testing
 </br>
 
 ## Nivell 1 ⭐
